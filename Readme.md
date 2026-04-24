@@ -1,4 +1,6 @@
-# Home Automation System (S7-1200 / ET200S)
+# Home Automation System (S7-1200)
+
+![Control panel](doc/Console.jpg)
 
 A custom-built home automation system focused on reducing cognitive load through predictable, low-interaction behavior.
 
@@ -23,7 +25,7 @@ The result is a living environment that requires less manual interaction and few
 ## Architecture
 
 * **PLC:** Siemens S7-1200
-* **Distributed I/O:** Siemens ET200S
+* **Distributed I/O:** Siemens ET200S, ADAM-6052
 * **HMI:** KTP600 Basic Mono for status and manual overrides
 * **Custom hardware:** Multiple custom-built interface and control boards
 * **Operation:** Fully offline, no cloud dependencies
@@ -33,9 +35,6 @@ The system is structured similarly to a small industrial installation, with clea
 ---
 
 ## Design Principles
-
-* **Low cognitive load**
-  System should minimise daily interruptions.
 
 * **Predictability over flexibility**
   Behavior is stable and consistent over time
@@ -135,7 +134,7 @@ Triggers:
 
 ## Communication & Integration
 
-* Proprietary S21 protocol implemented directly on the PLC
+* Proprietary Daikin S21 protocol implemented directly on the PLC
 * Custom-built serial multiplexer for multi-device communication
 * Integration of external systems without reliance on external controllers
 
@@ -181,4 +180,5 @@ Rather than maximizing automation features, the focus is on:
 * reducing cognitive load
 * maintaining consistent behavior
 * integrating multiple subsystems into a single coherent design
+
 
