@@ -90,7 +90,7 @@ To enable stable low-power operation, the stove was modified with internal ceram
 
 Goal:
 
-* maintain a steady low burn rate (~2.5 kg/day)
+* maintain a steady low burn rate
 
 Effect:
 
@@ -145,7 +145,11 @@ Triggers:
 The system includes several custom-built components:
 
 * LED dimmers (down to ~0.1% brightness)
+
+  <img src="doc/Dimmer.jpg" alt="Dimmer" height="400">
 * Serial communication interfaces
+
+  <img src="doc/Serial multiplexer.jpg" alt="Serial multiplexer" height="400">
 * Control boards for distributed logic
 * Analog and digital signal conditioning
 
@@ -159,7 +163,7 @@ These are implemented using discrete components and perfboard-based designs.
 * PLC cabinet with modular I/O and structured wiring
 * Custom electronics integrated alongside industrial components
 
-(See images in repository)
+  <img src="doc/Installatie kast links.jpg" alt="Installation cabinet left" height="500"> <img src="doc/Installatie kast rechts.jpg" alt="Installation cabinet right" height="500">
 
 ---
 
@@ -167,7 +171,6 @@ These are implemented using discrete components and perfboard-based designs.
 
 * The system evolved over time based on real-world usage
 * Functionality prioritizes reliability and usability over complexity
-* Implementation details are intentionally not fully exposed
 
 ---
 
