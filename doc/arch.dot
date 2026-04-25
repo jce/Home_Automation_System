@@ -21,9 +21,10 @@ digraph domotics {
         flow;
     }
 
-        plc [label="PLC"];
+        plc [label="PLC\nS7-1215"];
         et200s [label="ET200S"];
         adam [label="Adam 6052\n(remote I/O)"];
+        jdalog [label="jDaLog"];
 
     subgraph cluster_outputs {
         label="Actuators";
@@ -37,6 +38,7 @@ digraph domotics {
         flush;
         curtains;
         gate;
+        fridge;
     }
         gate [label="coop gate"];
         airco;
@@ -46,7 +48,7 @@ digraph domotics {
         
     subgraph cluster_external {
         label="Console";
-        hmi;
+        hmi [label="HMI"];
         knobs [label="Knobs / Meters"];
     }
 
@@ -57,6 +59,7 @@ digraph domotics {
 
     // --- Connections ---
     hmi -> plc [dir=both];
+    jdalog -> plc [style=dashed];
     motion -> et200s;
     door -> et200s;
     window -> et200s;
@@ -64,7 +67,7 @@ digraph domotics {
     temperatures -> et200s;
     flow -> et200s;
     plc -> et200s [dir=both; penwidth=2.5];
-    et200s -> ventilation;
+    plc -> ventilation;
     et200s -> boiler;
     plc -> chime;
     et200s -> stove;
@@ -78,5 +81,6 @@ digraph domotics {
     adam -> light;
     plc -> adam;
     plc -> airco;
-    knobs -> et200s;
+    knobs -> plc [dir=both];
+    et200s -> fridge;
 }

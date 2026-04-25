@@ -76,22 +76,6 @@ The result is a living environment that requires less manual interaction and few
 
 ---
 
-### Stove Optimization
-
-To enable stable low-power operation, the stove was modified with internal ceramic insulation.
-
-Goal:
-
-* maintain a steady low burn rate
-
-Effect:
-
-* improved combustion stability
-* reduced internal heat loss
-* better control at low output levels
-
----
-
 ### Presence & Behavior Automation
 
 * Toilet flushes automatically after leaving
@@ -127,9 +111,9 @@ Triggers:
 
 ## Communication & Integration
 
+* Data logging and visualization via [jDaLog](https://github.com/jce/jDaLog)
 * Proprietary Daikin S21 protocol implemented directly on the PLC
 * Custom-built serial multiplexer for multi-device communication
-* Integration of external systems without reliance on external controllers
 
 ---
 
