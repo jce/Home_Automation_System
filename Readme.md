@@ -28,22 +28,18 @@ The result is a living environment that requires less manual interaction and few
 * **Distributed I/O:** Siemens ET200S, ADAM-6052
 * **HMI:** KTP600 Basic Mono, and knobs and meters for status and manual overrides
 * **Custom hardware:** Multiple custom-built interface and control boards
-* **Operation:** Fully offline, no cloud dependencies, no wifi dependency
+* **Operation:** Fully offline, no cloud dependencies. Fully wired, no wireless communication.
 
-  <img src="doc/arch.png" alt="Architecture" height="400">
+![Architecture](doc/arch.png)
 
 ---
 
 ## Design Principles
 
 * **Predictability over flexibility** Behavior is stable and consistent over time
-
 * **Minimal interaction** Most actions are automatic
-
 * **Context awareness** System reacts to presence, time of day, and usage patterns
-
 * **Quiet operation** Mechanical and electrical noise are minimized
-
 * **Energy-aware behavior** Systems adapt to occupancy and demand
 
 ---
