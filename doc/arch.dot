@@ -1,0 +1,82 @@
+
+digraph domotics {
+    labelloc="t";
+    label="Home Automation System Architecture";
+
+    rankdir=LR;
+    splines=true;
+    node [shape=box, style=rounded];
+    ranksep=0.9;
+    edge [color="#555555"];
+
+    // --- Groups ---
+    subgraph cluster_inputs {
+        label="Sensors";
+        style=dashed;
+        motion;
+        door;
+        window;
+        bed;
+        temperatures;
+        flow;
+    }
+
+        plc [label="PLC"];
+        et200s [label="ET200S"];
+        adam [label="Adam 6052\n(remote I/O)"];
+
+    subgraph cluster_outputs {
+        label="Actuators";
+        style=dashed;
+        ventilation;
+        boiler;
+        chime;
+        stove;
+        light;
+        coffee;
+        flush;
+        curtains;
+        gate;
+    }
+        gate [label="coop gate"];
+        airco;
+        dimmer [label="LED\ndimmer"];
+        bed [label="bed occupancy"];
+        flow [label="flow sensor"];
+        
+    subgraph cluster_external {
+        label="Console";
+        hmi;
+        knobs [label="Knobs / Meters"];
+    }
+
+    { rank=same; airco; adam; plc; et200s, dimmer}
+    //airco -> adam -> plc -> et200s [style=invis];
+    airco -> plc [style=invis];
+    et200s -> dimmer -> adam [style=invis];
+
+    // --- Connections ---
+    hmi -> plc [dir=both];
+    motion -> et200s;
+    door -> et200s;
+    window -> et200s;
+    bed -> et200s;
+    temperatures -> et200s;
+    flow -> et200s;
+    plc -> et200s [dir=both; penwidth=2.5];
+    et200s -> ventilation;
+    et200s -> boiler;
+    plc -> chime;
+    et200s -> stove;
+    et200s -> dimmer [penwidth=1.5];
+    dimmer -> light [penwidth=1.5];
+    et200s -> coffee;
+    et200s -> flush;
+    et200s -> curtains;
+    motion -> adam;
+    adam -> gate;
+    adam -> light;
+    plc -> adam;
+    plc -> airco;
+    knobs -> et200s;
+}

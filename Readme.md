@@ -26,30 +26,25 @@ The result is a living environment that requires less manual interaction and few
 
 * **PLC:** Siemens S7-1200
 * **Distributed I/O:** Siemens ET200S, ADAM-6052
-* **HMI:** KTP600 Basic Mono for status and manual overrides
+* **HMI:** KTP600 Basic Mono, and knobs and meters for status and manual overrides
 * **Custom hardware:** Multiple custom-built interface and control boards
-* **Operation:** Fully offline, no cloud dependencies
+* **Operation:** Fully offline, no cloud dependencies, no wifi dependency
 
-The system is structured similarly to a small industrial installation, with clear separation between control logic and field wiring.
+  <img src="doc/arch.png" alt="Architecture" height="400">
 
 ---
 
 ## Design Principles
 
-* **Predictability over flexibility**
-  Behavior is stable and consistent over time
+* **Predictability over flexibility** Behavior is stable and consistent over time
 
-* **Minimal interaction**
-  Most actions are automatic
+* **Minimal interaction** Most actions are automatic
 
-* **Context awareness**
-  System reacts to presence, time of day, and usage patterns
+* **Context awareness** System reacts to presence, time of day, and usage patterns
 
-* **Quiet operation**
-  Mechanical and electrical noise are minimized
+* **Quiet operation** Mechanical and electrical noise are minimized
 
-* **Energy-aware behavior**
-  Systems adapt to occupancy and demand
+* **Energy-aware behavior** Systems adapt to occupancy and demand
 
 ---
 
@@ -62,6 +57,7 @@ The system is structured similarly to a small industrial installation, with clea
 * Smooth fade-in / fade-out transitions
 * Circadian rhythm lighting (warmer and dimmer in the evening)
 * Computer screens act as virtual light sources
+* Bed occupancy turns light off
 
 ---
 
@@ -104,6 +100,7 @@ Effect:
 
 * Toilet flushes automatically after leaving
 * Doorbell indicates presence (home/away)
+* Chicken coop opens and closes at preprogrammed times
 * Shower detection based on:
 
   * presence
@@ -157,13 +154,17 @@ These are implemented using discrete components and perfboard-based designs.
 
 ---
 
-## Example Setup
+## Safety
 
-* Central control panel with HMI, manual overrides, and analog feedback
-* PLC cabinet with modular I/O and structured wiring
-* Custom electronics integrated alongside industrial components
+* CO detection:
 
-  <img src="doc/Installatie kast links.jpg" alt="Installation cabinet left" height="500"> <img src="doc/Installatie kast rechts.jpg" alt="Installation cabinet right" height="500">
+  * Acoustic alarm to ensure user intervention
+  * Ventilation is adjusted automatically
+  * User action is required (e.g. checking stove, opening windows)
+
+* Boiler hygiene:
+
+  * Weekly high-temperature disinfection cycle (legionella prevention)
 
 ---
 
